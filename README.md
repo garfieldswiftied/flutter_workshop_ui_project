@@ -1,31 +1,26 @@
 # flutter_workshop_ui_project
 
-Assignment 02 — แอป **Orange ส้ม** (UI 6 หน้า ตาม Mockup)
+Assignment 02 ฝึกสร้าง UI 6 หน้าของแอป **Orange ส้ม** ด้วย Flutter และ Dart
+ตาม Mockup สำหรับ iPhone 15 Pro Max ขนาด 430 × 932 logical pixels
 
-| ไฟล์ | คลาส | หน้าจอ |
+| ไฟล์ใน `lib/views/` | Class | หน้าจอ |
 |---|---|---|
-| `lib/e01_page_ui.dart` | `E01PageUI` | Splash / Berry Juice (หน้าแรก) |
-| `lib/e02_page_ui.dart` | `E02PageUI` | Welcome back (Login) |
-| `lib/e03_page_ui.dart` | `E03PageUI` | Register |
-| `lib/e04_page_ui.dart` | `E04PageUI` | Forgot your password? |
-| `lib/e05_page_ui.dart` | `E05PageUI` | OTP Verification |
-| `lib/e06_page_ui.dart` | `E06PageUI` | Create New Password |
+| `e01_page_ui.dart` | `E01PageUI` | Welcome / Berry Juice |
+| `e02_page_ui.dart` | `E02PageUI` | Login |
+| `e03_page_ui.dart` | `E03PageUI` | Register |
+| `e04_page_ui.dart` | `E04PageUI` | Forgot Password |
+| `e05_page_ui.dart` | `E05PageUI` | OTP Verification |
+| `e06_page_ui.dart` | `E06PageUI` | Create New Password |
 
-รูปอยู่ใน `assets/images/` และประกาศไว้ใน `pubspec.yaml` แล้ว
+เปิด Terminal ที่โฟลเดอร์โปรเจกต์ แล้วรัน
 
-## วิธีรัน
-
-```bash
-flutter create . --project-name flutter_workshop_ui_project   # สร้าง android/ ios/ web/ (ไม่ทับ lib/ pubspec.yaml test/)
+```sh
 flutter pub get
-dart run flutter_launcher_icons   # สร้างไอคอนแอปจาก assets/icon/icon.png
-flutter run
+flutter run -d chrome
 ```
 
-เลือก Simulator เป็น **iPhone 15 Pro Max**
+ใช้ Device Toolbar ใน Chrome DevTools แล้วเลือก iPhone 15 Pro Max
+หรือกำหนด viewport เป็น 430 × 932 เพื่อตรวจหน้าตาตามแบบ
 
-## ตั้งชื่อแอปเป็น "Orange ส้ม"
-
-- Android: `android/app/src/main/AndroidManifest.xml` → `android:label="Orange ส้ม"`
-- iOS: `ios/Runner/Info.plist` → `CFBundleDisplayName` และ `CFBundleName` เป็น `Orange ส้ม`
-- ชื่อที่แสดงในโค้ด: `MaterialApp(title: 'Orange ส้ม')` ใน `lib/main.dart`
+รูปประกอบอยู่ใน `assets/images/` ส่วน `assets/icon/icon.png` เป็นรูปต้นทาง
+สำหรับ launcher icon ที่ตั้งค่าไว้ใน `pubspec.yaml`

@@ -1,11 +1,11 @@
 {
-    "name": "flutter_workshop_ui_project",
-    "short_name": "flutter_workshop_ui_project",
+    "name": "Orange ส้ม",
+    "short_name": "Orange ส้ม",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#FFFFFF",
+    "theme_color": "#F79515",
+    "description": "Orange ส้ม — Flutter UI Workshop",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

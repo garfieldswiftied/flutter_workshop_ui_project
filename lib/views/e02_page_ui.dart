@@ -1,9 +1,11 @@
 import 'package:material_ui/material_ui.dart';
 
+import 'orange_header.dart';
+
 import 'e03_page_ui.dart';
 import 'e04_page_ui.dart';
 
-const Color _orange = Color(0xFFF7941D);
+const Color _orange = Color(0xFFF79515);
 
 class E02PageUI extends StatelessWidget {
   const E02PageUI({super.key});
@@ -15,32 +17,36 @@ class E02PageUI extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset(
-              'assets/images/img_orange2.png',
-              width: double.infinity,
-              fit: BoxFit.fitWidth,
-            ),
+            const OrangeHeader(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
+              padding: const EdgeInsets.symmetric(horizontal: 36),
               child: Column(
                 children: [
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 12),
                   const Text(
                     'Welcome back',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 36,
+                      height: 1.1,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 4),
                   const Text(
                     'Login to your account',
-                    style: TextStyle(fontSize: 13),
+                    style: TextStyle(fontSize: 22, height: 1.15),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 26),
                   const _Field(hint: 'Enter email or phone'),
                   const SizedBox(height: 12),
                   const _Field(
                     hint: 'Password',
                     obscure: true,
-                    suffix: Icon(Icons.visibility_outlined, size: 20),
+                    suffix: Icon(
+                      Icons.visibility_off,
+                      size: 24,
+                      color: Colors.black45,
+                    ),
                   ),
                   Align(
                     alignment: Alignment.centerRight,
@@ -55,22 +61,15 @@ class E02PageUI extends StatelessWidget {
                       },
                       child: const Text(
                         'Forgot Password ?',
-                        style: TextStyle(color: _orange, fontSize: 12),
+                        style: TextStyle(color: _orange, fontSize: 14),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16),
                   SizedBox(
                     width: double.infinity,
-                    height: 48,
+                    height: 58,
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: _orange,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
                       onPressed: () {},
                       child: const Text(
                         'Log In',
@@ -80,15 +79,15 @@ class E02PageUI extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   const _OrDivider(),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 28),
                   const _SocialRow(),
-                  const SizedBox(height: 32),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  const SizedBox(height: 28),
+                  Wrap(
+                    alignment: WrapAlignment.center,
                     children: [
                       const Text(
                         "Don't have an Account? ",
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(fontSize: 14),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -100,8 +99,8 @@ class E02PageUI extends StatelessWidget {
                           );
                         },
                         child: const Text(
-                          'Create account',
-                          style: TextStyle(color: _orange, fontSize: 12),
+                          'Create Account',
+                          style: TextStyle(color: _orange, fontSize: 14),
                         ),
                       ),
                     ],
@@ -127,24 +126,11 @@ class _Field extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 46,
+      height: 54,
       child: TextField(
         obscureText: obscure,
-        style: const TextStyle(fontSize: 13),
-        decoration: InputDecoration(
-          hintText: hint,
-          hintStyle: const TextStyle(fontSize: 12, color: Colors.black38),
-          suffixIcon: suffix,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(6),
-            borderSide: const BorderSide(color: Colors.black26),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(6),
-            borderSide: const BorderSide(color: _orange),
-          ),
-        ),
+        style: const TextStyle(fontSize: 16),
+        decoration: InputDecoration(hintText: hint, suffixIcon: suffix),
       ),
     );
   }
@@ -157,12 +143,15 @@ class _OrDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: [
-        Expanded(child: Divider()),
+        Expanded(child: Divider(color: _orange)),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 12),
-          child: Text('OR', style: TextStyle(fontSize: 12)),
+          child: Text(
+            'OR',
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+          ),
         ),
-        Expanded(child: Divider()),
+        Expanded(child: Divider(color: _orange)),
       ],
     );
   }
@@ -176,11 +165,11 @@ class _SocialRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset('assets/images/img_g.png', width: 28, height: 28),
-        const SizedBox(width: 24),
-        Image.asset('assets/images/img_f.png', width: 28, height: 28),
-        const SizedBox(width: 24),
-        Image.asset('assets/images/img_a.png', width: 28, height: 28),
+        Image.asset('assets/images/img_g.png', width: 35, height: 35),
+        const SizedBox(width: 38),
+        Image.asset('assets/images/img_f.png', width: 35, height: 35),
+        const SizedBox(width: 38),
+        Image.asset('assets/images/img_a.png', width: 35, height: 35),
       ],
     );
   }
