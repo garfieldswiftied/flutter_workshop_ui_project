@@ -1,6 +1,6 @@
 # flutter_workshop_ui_project
 
-Assignment 02 ฝึกสร้าง UI 6 หน้าของแอป **Orange ส้ม** ด้วย Flutter และ Dart
+ฝึกสร้าง UI 6 หน้าของแอป **Orange ส้ม** ด้วย Flutter และ Dart
 ตาม Mockup สำหรับ iPhone 15 Pro Max ขนาด 430 × 932 logical pixels
 
 ## ภาพหน้าจอ
