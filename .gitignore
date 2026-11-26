@@ -32,3 +32,18 @@ resource.rar
 key.properties
 *.log
 *.tmp
+
+# Credential stores and signing files
+.netrc
+_netrc
+.git-credentials
+*.p8
+*.mobileprovision
+
+# Flutter coverage, symbolication and Android build output
+/coverage/
+app.*.symbols
+app.*.map.json
+/android/app/debug/
+/android/app/profile/
+/android/app/release/
