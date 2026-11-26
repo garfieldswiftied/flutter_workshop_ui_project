@@ -1,6 +1,6 @@
 # Orange ส้ม
 
-Orange ส้ม เป็นโปรเจกต์ Flutter และ Dart ที่ถ่ายทอด Mockup สำหรับ iPhone 15 Pro Max ขนาด 430 × 932 logical pixels เป็น UI มือถือ 6 หน้าจอ ตั้งแต่หน้าแนะนำ Berry Juice ถึงหน้าตั้งรหัสผ่านใหม่ แอปใช้ธีม Material 3 และนำทางระหว่างหน้าจอด้วย Flutter Navigator
+Orange ส้มเป็นต้นแบบหน้าจอมือถือ 6 หน้าสำหรับสาธิตการใช้งานแอป Berry Juice ตั้งแต่หน้าแนะนำไปจนถึงหน้าตั้งรหัสผ่านใหม่ พัฒนาด้วย Flutter และ Dart ใช้ธีม Material 3 และนำทางด้วย Flutter Navigator
 
 ## ฟังก์ชันการทำงาน
 
@@ -10,7 +10,7 @@ Orange ส้ม เป็นโปรเจกต์ Flutter และ Dart ท
 
 ## ภาพหน้าจอแอปพลิเคชัน
 
-ภาพจากแอปเวอร์ชันสุดท้ายที่ขนาด 430 × 932 logical pixels
+ภาพหน้าจอขนาด 430 × 932 logical pixels ตามขนาดอ้างอิง iPhone 15 Pro Max
 
 | Welcome / Berry Juice | Login | Register |
 | :---: | :---: | :---: |
@@ -26,30 +26,27 @@ Orange ส้ม เป็นโปรเจกต์ Flutter และ Dart ท
 | --- | --- |
 | Flutter, Dart และ Material 3 | สร้างหน้าจอ จัดธีม และนำทางระหว่างหน้าจอ |
 | `material_ui` | Material widgets สำหรับหน้าจอและฟอร์ม |
-| `google_fonts`, `cupertino_icons` | Dependencies ที่ประกาศในโปรเจกต์ |
+| `google_fonts`, `cupertino_icons` | แพ็กเกจที่ประกาศใน `pubspec.yaml` โดยหน้าจอใช้ฟอนต์จากธีม Flutter และไอคอนตามแบบ |
 | `flutter_test`, `flutter_lints` | Widget Test และกฎวิเคราะห์โค้ด |
 | `flutter_launcher_icons` | กำหนด Launcher Icon สำหรับ Android และ iOS |
 
 ## โครงสร้างโปรเจกต์
 
-| ไฟล์ใน `lib/views/` | Class | หน้าจอ |
-|---|---|---|
-| `e01_page_ui.dart` | `E01PageUI` | Welcome / Berry Juice |
-| `e02_page_ui.dart` | `E02PageUI` | Login |
-| `e03_page_ui.dart` | `E03PageUI` | Register |
-| `e04_page_ui.dart` | `E04PageUI` | Forgot Password |
-| `e05_page_ui.dart` | `E05PageUI` | OTP Verification |
-| `e06_page_ui.dart` | `E06PageUI` | Create New Password |
-
-- `lib/main.dart` เริ่มแอป ตั้งธีม และกำหนดความกว้างสูงสุดของ UI ที่ 430 logical pixels
-- `lib/views/orange_header.dart` เป็น Widget ส่วนหัวสำหรับหน้าจอกู้คืนรหัสผ่าน
-- `assets/images/` เก็บภาพประกอบ ส่วน `assets/icon/icon.png` เป็นต้นทางของ Launcher Icon
-- `docs/screenshots/` เก็บภาพหน้าจอ และ `test/` เก็บ Widget Test
-- มีโครงสร้างสำหรับ Android, iOS, Web, Windows, Linux และ macOS
+| ไฟล์ | Class | หน้าที่ |
+| --- | --- | --- |
+| `lib/main.dart` | `MyApp` | ตั้งธีมและจำกัดความกว้าง UI ที่ 430 logical pixels |
+| `lib/views/e01_page_ui.dart` | `E01PageUI` | หน้าแนะนำ Berry Juice |
+| `lib/views/e02_page_ui.dart` | `E02PageUI` | หน้าเข้าสู่ระบบ |
+| `lib/views/e03_page_ui.dart` | `E03PageUI` | หน้าสมัครบัญชี |
+| `lib/views/e04_page_ui.dart` | `E04PageUI` | หน้ารับอีเมลเพื่อกู้รหัสผ่าน |
+| `lib/views/e05_page_ui.dart` | `E05PageUI` | หน้ากรอก OTP |
+| `lib/views/e06_page_ui.dart` | `E06PageUI` | หน้าตั้งรหัสผ่านใหม่ |
+| `lib/views/orange_header.dart` | `OrangeHeader`, `OrangeBackButton` | ส่วนหัวและปุ่มย้อนกลับที่ใช้ร่วมกัน |
+| `assets/images/`, `assets/icon/icon.png` | — | ภาพประกอบและภาพต้นทางของ Launcher Icon |
 
 ## การติดตั้งและใช้งาน
 
-ติดตั้ง Flutter SDK ที่รองรับ Dart ตาม `pubspec.yaml` (`^3.14.0`) และติดตั้ง Chrome จากนั้นเปิด Terminal ที่โฟลเดอร์โปรเจกต์แล้วรัน
+ใช้ Flutter SDK 3.47.0 ขึ้นไปตาม `pubspec.lock` ที่รองรับ Dart `^3.14.0` ตาม `pubspec.yaml` ติดตั้ง Chrome แล้วรันคำสั่งจากโฟลเดอร์โปรเจกต์
 
 ```sh
 flutter pub get
@@ -60,17 +57,16 @@ flutter run -d chrome
 
 ## การทดสอบและข้อจำกัด
 
-- บันทึกการตรวจ UI เดิมเมื่อ 25 พฤศจิกายน 2569 ใน `.dart_tool/assignment_final/ui-verification.log` ระบุว่าผ่าน 2 รายการ ได้แก่ การตรวจหน้าจอทั้ง 6 และการนำทางที่ 430 × 932 และการตรวจพื้นที่ของฟอร์ม 5 หน้าเมื่อเปิดแป้นพิมพ์ บันทึกชุดนี้ไม่ได้ระบุ Git commit ที่รัน
-- มี Widget Test ใน [`test/widget_test.dart`](test/widget_test.dart) สำหรับตรวจข้อความ BERRY JUICE และปุ่ม Explore Now ผลการรันเดิม **NOT VERIFIED**
-- ผล `flutter analyze` ผล Build และ Technical Acceptance **NOT VERIFIED**
-- ภาพหน้าจอเป็นหลักฐานด้าน UI ที่ขนาด 430 × 932 ผลทดสอบบนอุปกรณ์จริงและผลทดสอบแยกตามแพลตฟอร์ม **NOT VERIFIED**
-- ฟอร์มเข้าสู่ระบบ สมัครบัญชี กรอก OTP และตั้งรหัสผ่านใหม่อยู่ในขอบเขตการสาธิต UI แอปยังไม่มี Backend สำหรับยืนยันตัวตน ส่ง OTP หรือบันทึกรหัสผ่าน
+- บันทึกการทดสอบ UI ระบุว่าตรวจการแสดงผลและการนำทางครบ 6 หน้าที่ขนาด 430 × 932 รวมถึงพื้นที่ฟอร์ม 5 หน้าเมื่อเปิดแป้นพิมพ์ บันทึกไม่ได้ระบุ Git commit ที่ใช้ทดสอบ
+- มี [Widget Test](test/widget_test.dart) สำหรับข้อความ BERRY JUICE และปุ่ม Explore Now ผลการรันยังไม่ได้ยืนยัน
+- ผล `flutter analyze` ผล Build และผลทดสอบแยกตามแพลตฟอร์มหรือบนอุปกรณ์จริงยังไม่ได้ยืนยัน
+- ฟอร์ม Login, Register, OTP และตั้งรหัสผ่านเป็นขั้นตอนสาธิต แอปยังไม่มี Backend สำหรับยืนยันตัวตน ส่ง OTP หรือบันทึกรหัสผ่าน
 
 ## เครดิตและสิทธิ์การใช้งาน
 
 ### ทรัพยากรจากอาจารย์และ Figma
 
-การออกแบบ UI และทรัพยากรประกอบแอปพลิเคชันอ้างอิงจาก Figma และ Resources ที่อาจารย์จัดเตรียมให้สำหรับรายวิชาการพัฒนาโปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่ โดยได้รับอนุญาตจากอาจารย์ให้นำมาใช้ประกอบการส่งงานผ่าน GitHub
+การออกแบบ UI และทรัพยากรประกอบแอปอ้างอิงจาก Figma และชุด Resources ที่อาจารย์จัดเตรียมให้สำหรับรายวิชาการพัฒนาโปรแกรมประยุกต์สำหรับอุปกรณ์เคลื่อนที่
 
 ### ฟอนต์ แพ็กเกจ และสัญญาอนุญาตโอเพนซอร์ส
 
